@@ -10,21 +10,21 @@ const isocodes = ["bg", "et", "en", "es", "eo", "it", "el", "la", "lv", "lt", "n
  * @property {String} options.to Destination language
  */
 module.exports = async function(word, options = {}){
-	if(!word) return new Error("No search term specified");
+	if(!word) throw new Error("No search term specified");
 	let langFrom = "17";
 	let langTo = "3";
 	if(options.from && options.to){
 		options.from = options.from.toLowerCase();
 		options.to = options.to.toLowerCase();
-		if(options.from == options.to) return new Error("Source and destination languages are the same");
+		if(options.from == options.to) throw new Error("Source and destination languages are the same");
 		if(isocodes.findIndex((v)=>v == options.from) !== -1){
 			langFrom = isocodes.findIndex((v)=>v == options.from)+1;
 		}
-		else return new Error("Unknown source language.");
+		else throw new Error("Unknown source language.");
 		if(isocodes.findIndex((v)=>v == options.to) !== -1){
 			langTo = isocodes.findIndex((v)=>v == options.to)+1;
 		}
-		else return new Error("Unknown destination language.");
+		else throw new Error("Unknown destination language.");
 	} 
 	const url = new URL("http://www.sanakirja.org/search.php");
 	let params = url.searchParams;
