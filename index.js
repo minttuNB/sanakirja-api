@@ -2,7 +2,15 @@ const cheerio = require("cheerio");
 const { URL } = require("url");
 const fetch = require("isomorphic-fetch");
 const isocodes = ["bg", "et", "en", "es", "eo", "it", "el", "la", "lv", "lt", "no", "pt", "pl", "fr", "sv", "de", "fi", "da", "cs", "tr", "hu", "ru", "nl", "ja"];
+/**
+ * Searches for a word on sanakirja.org
+ * @param {String} word The word you are searching for
+ * @param {Object} options Language options
+ * @property {String} options.from Source language
+ * @property {String} options.to Destination language
+ */
 module.exports = async function(word, options = {}){
+	if(!word) return new Error("No search term specified");
 	let langFrom = "17";
 	let langTo = "3";
 	if(options.from && options.to){
