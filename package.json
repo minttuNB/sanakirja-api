@@ -1,0 +1,22 @@
+{
+  "name": "sanakirja-api",
+  "version": "1.0.0",
+  "description": "Unofficial API for sanakirja.org",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sanakirja",
+    "finnish",
+    "dictionary",
+    "api"
+  ],
+  "author": "minttu",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "eslint": "^4.19.1",
+    "isomorphic-fetch": "^2.2.1"
+  }
+}
