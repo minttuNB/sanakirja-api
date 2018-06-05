@@ -37,7 +37,7 @@ module.exports = async function(word, options = {}){
 		spellings: [],
 		translations: [],
 		synonyms: [],
-		pronunciation: ""
+		pronunciation: []
 	};
 	if($("#translations").length > 0){
 		let ctx = false;
@@ -68,7 +68,10 @@ module.exports = async function(word, options = {}){
 			data.synonyms.push(synonym);
 		});
 	}
-	if($("span.pronunciation").length > 0)
-		data.pronunciation = $($("span.pronunciation")[0]).text();
+	if($("span.pronunciation").length > 0){
+		$("span.pronunciation").each(function(){
+			data.pronunciation.push($(this).text());
+		});
+	}
 	return data;
 };
