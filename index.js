@@ -59,7 +59,7 @@ module.exports = async function(word, options = {}){
 			data.spellings.push($(this).text());
 		});
 	}
-	else data.spellings.push(word);
+	else data.spellings.push(word.toLowerCase());
 	if($(".synonyms").length > 0){
 		$($(".synonyms")[0]).find("li").each(function(){
 			let synonym = {};
